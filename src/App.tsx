@@ -1,32 +1,25 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import Header from './components/Header'
+import Content from './components/Content'
+import FormCar from "./components/FormCar";
+import Footer from "./components/Footer";
+import {data, ICar} from "./data";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+    const[cars,setCars] = useState(data)
+    const createNewitem = (item : ICar)=>{
+        setCars(prevState => [...prevState,item])
+        console.log(cars)
+    }
   return (
-    <div className="App">
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <Header />
+        <Content data={cars}/>
+          <FormCar createCar={(item:ICar)=>createNewitem(item)} />
+          <Footer />
       </div>
-      <h1>Vite + React</h1>
-        <h2>Ivan Chiurcciu</h2>
-        <h3>CR-203</h3>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
   )
 }
 
