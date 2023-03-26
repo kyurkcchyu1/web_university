@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn } from 'mdb-react-ui-kit';
-import './LogIn.css'
+import React, {useState, useEffect} from 'react';
+import {MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn} from 'mdb-react-ui-kit';
+import {useNavigate} from "react-router";
+
 interface User {
     username: string;
     password: string;
 }
 
 const initialUsers: User[] = [
-    { username: 'admin', password: 'admin' },
-    { username: 'user2', password: 'password2' },
-    { username: 'user3', password: 'password3' },
+    {username: 'admin', password: 'admin'},
+    {username: 'user2', password: 'password2'},
+    {username: 'user3', password: 'password3'},
 ];
 
-const LogIn: React.FC = ({close}:any) => {
+const LogIn: React.FC = ({loginChange}: any) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate()
 
 
     const [alertType, setAlertType] = useState<'success' | 'danger'>('success');
@@ -44,8 +46,11 @@ const LogIn: React.FC = ({close}:any) => {
             if (matchingUser) {
                 setMessage('Login successful');
                 setAlertType('success');
-                localStorage.setItem('currentUser',JSON.stringify(username))
-                setTimeout(close,500)
+                localStorage.setItem('currentUser', JSON.stringify(username))
+                loginChange()
+                setTimeout(()=>{
+                    navigate('/cars')
+                }, 500)
             } else {
                 setMessage('Invalid username or password');
                 setAlertType('danger');
@@ -53,31 +58,22 @@ const LogIn: React.FC = ({close}:any) => {
         }
     };
     return (
-        <MDBContainer className="login">
+        <MDBContainer className = "login">
             <MDBRow>
-                <MDBCol md="6">
-                    <MDBCard className="login--form">
+                <MDBCol md = "6">
+                    <MDBCard className = "login--form">
                         <MDBCardBody>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit = {handleSubmit}>
                                 LogIN
-                                <p className={`h4 text-center mb-4 text-${alertType}`}>{message}</p>
-                                <div className="grey-text d-flex flex-column gap-4">
-                                    <MDBInput
-                                        label="Username"
-                                        type="text"
-                                        value={username}
-                                        onChange={handleUsernameChange}
-                                    />
-                                    <MDBInput
-                                        label="Password"
-                                        type="password"
-                                        value={password}
-                                        onChange={handlePasswordChange}
-                                    />
+                                <p className = {`h4 text-center mb-4 text-${alertType}`}>{message}</p>
+                                <div className = "grey-text d-flex flex-column gap-4">
+                                    <MDBInput label = "Username" type = "text" value = {username}
+                                              onChange = {handleUsernameChange}/>
+                                    <MDBInput label = "Password" type = "password" value = {password}
+                                              onChange = {handlePasswordChange}/>
                                 </div>
-                                <div className="text-center mt-3 d-flex gap-5 justify-content-center">
-                                    <MDBBtn type="submit">Login</MDBBtn>
-                                    <MDBBtn color="danger" outline onClick={close}>Close</MDBBtn>
+                                <div className = "text-center mt-3 d-flex gap-5 justify-content-center">
+                                    <MDBBtn type = "submit">Login</MDBBtn>
                                 </div>
                             </form>
                         </MDBCardBody>
