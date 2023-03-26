@@ -1,0 +1,42 @@
+.content {
+    padding: 40px;
+}
+
+.formcar {
+    margin: 0 auto;
+    width: 60%;
+}
+
+.navbar {
+    min-height: 50px;
+}
+
+.header--content {
+    padding-top: 100px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.login {
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.login--form {
+    width: 500px;
+}
+
+.links {
+    display: flex;
+    gap: 10px;
+}
+
+.links-color {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+.links-color:hover {
+    color: rgba(0, 0, 0, 0.8);
+}

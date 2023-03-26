@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Card from './Card'
-import './Content.css'
 import {IAddedCar} from "../data";
 
 interface ContentProps {

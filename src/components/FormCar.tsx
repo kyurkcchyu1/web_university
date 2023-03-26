@@ -3,7 +3,6 @@ import {
     MDBInput,
     MDBBtn
 } from 'mdb-react-ui-kit';
-import './FormCar.css'
 import {IAddedCar} from "../data";
 
 interface FormCarProps {
@@ -25,7 +24,6 @@ const FormCar: React.FC<FormCarProps> = ({createCar}) => {
             descrip: descr
         }
         createCar(newItem)
-        console.log(newItem)
         setName('')
         setYear('')
         setImg('')

@@ -11,9 +11,6 @@ export interface IAddedCar extends ICar {
     country?: string
 }
 
-
-
-
 export const data: IAddedCar[] = [
     {
         id: 1,
