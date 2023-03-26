@@ -8,23 +8,25 @@ import {
     MDBBtn,
     MDBRipple
 } from 'mdb-react-ui-kit';
+import {IAddedCar} from "../data";
 
-export default function Card(props : any) {
+const Card:React.FC<IAddedCar> = ({name, year,imageUrl, descrip}) => {
     return (
         <MDBCard style={{ width: '18rem'}}>
             <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                <MDBCardImage src={props.imageUrl} fluid alt='...' />
+                <MDBCardImage src={imageUrl} fluid alt='...' />
                 <a>
                     <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
                 </a>
             </MDBRipple>
             <MDBCardBody>
-                <MDBCardTitle>{props.name} {props.year}</MDBCardTitle>
+                <MDBCardTitle>{name} {year}</MDBCardTitle>
                 <MDBCardText>
-                    {props.descrip}
+                    {descrip}
                 </MDBCardText>
                 <MDBBtn href='#'>More</MDBBtn>
             </MDBCardBody>
         </MDBCard>
     );
 }
+export default Card
