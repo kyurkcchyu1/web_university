@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import {
     MDBInput,
     MDBBtn
@@ -18,6 +18,7 @@ const FormCar: React.FC<FormCarProps> = ({createCar}) => {
     const handleSubmit: (event: React.MouseEvent<HTMLButtonElement>) => void = () => {
         event.preventDefault()
         const newItem: IAddedCar = {
+            id: Number(new Date()),
             name: name,
             year: year,
             imageUrl: img,

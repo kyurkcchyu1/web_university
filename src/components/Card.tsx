@@ -9,8 +9,10 @@ import {
     MDBRipple
 } from 'mdb-react-ui-kit';
 import {IAddedCar} from "../data";
+import Store from '../Store'
 
-const Card:React.FC<IAddedCar> = ({name, year,imageUrl, descrip}) => {
+const Card:React.FC<IAddedCar> = ({id,name, year,imageUrl, descrip}) => {
+
     return (
         <MDBCard style={{ width: '18rem'}}>
             <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
@@ -24,7 +26,10 @@ const Card:React.FC<IAddedCar> = ({name, year,imageUrl, descrip}) => {
                 <MDBCardText>
                     {descrip}
                 </MDBCardText>
-                <MDBBtn href='#'>More</MDBBtn>
+                <div className="d-flex justify-content-between">
+                    <MDBBtn rounded>More</MDBBtn>
+                    <MDBBtn outline rounded color='danger' onClick={()=>{Store.deleteItem(id)}}>Delete</MDBBtn>
+                </div>
             </MDBCardBody>
         </MDBCard>
     );
