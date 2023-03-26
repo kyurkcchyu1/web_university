@@ -1,4 +1,3 @@
-
 export interface ICar {
     name: string,
     descrip: string,
@@ -6,8 +5,22 @@ export interface ICar {
     year: string
 }
 
+export interface IAddedCar extends ICar {
+    model?: string,
+    country?: string
+}
 
-export const data: ICar[] = [
+const dates: IAddedCar = {
+    name: "BMW M5 F90",
+    descrip: "BMW M5 F90 - это автомобиль бизнес-класса. Он оснащен 4,4-литровым V8 битурбированным двигателем. Автомобиль способен разгоняться до 100 км/ч всего за 3,4 секунды. ",
+    imageUrl: "https://2.bp.blogspot.com/-I_vOFwRU7rU/WZyKC0_z-LI/AAAAAAAAawM/eSBv6BQKh5E3DVdGdEdMUijJJgz-cBXjgCLcBGAs/s1600/P90272983_highRes.jpg",
+    year: "2018",
+    model: "M5 F90",
+    country: "Germany"
+}
+
+
+export const data: IAddedCar[] = [
     {
         name: "BMW M5 F90",
         descrip: "BMW M5 F90 - это автомобиль бизнес-класса. Он оснащен 4,4-литровым V8 битурбированным двигателем. Автомобиль способен разгоняться до 100 км/ч всего за 3,4 секунды. ",
@@ -26,5 +39,4 @@ export const data: ICar[] = [
         imageUrl: "https://3.bp.blogspot.com/-21Q1kvhlpvo/VFIg4H2V-xI/AAAAAAAAPug/k-bxUt0Bfc4/s1600/P90166924_highRes.jpg",
         year: "2019"
     },
-
 ]

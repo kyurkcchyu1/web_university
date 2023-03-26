@@ -4,7 +4,7 @@ import {
     MDBBtn
 } from 'mdb-react-ui-kit';
 import './FormCar.css'
-import {ICar} from "../data";
+import {IAddedCar} from "../data";
 
 
 export default function FormCar({createCar}) {
@@ -14,7 +14,7 @@ export default function FormCar({createCar}) {
     const [descr,setDescr] = useState('')
     const handleSubmit:(event: React.MouseEvent<HTMLButtonElement>) => void = () => {
         event.preventDefault()
-        const newItem : ICar={
+        const newItem : IAddedCar={
             name:name,
             year:year,
             imageUrl:img,
@@ -46,7 +46,6 @@ export default function FormCar({createCar}) {
                       value={descr}
                       onChange={(e)=>{setDescr(e.target.value)}}
             />
-
             <MDBBtn type='submit' className='mb-4' block >
                 Send
             </MDBBtn>
