@@ -1,10 +1,10 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import Header from './components/Header'
 import Content from './components/Content'
 import FormCar from "./components/FormCar";
 import Footer from "./components/Footer";
-import {data, IAddedCar} from "./data";
+import {observer} from 'mobx-react-lite'
 import {
     MDBBtn,
     MDBModal,
@@ -13,19 +13,15 @@ import {
     MDBModalHeader,
     MDBModalTitle,
     MDBModalBody,
-    MDBModalFooter, MDBIcon,
+    MDBModalFooter,
 } from 'mdb-react-ui-kit';
+import Store from './Store'
+import {IAddedCar} from "./data";
 
-export default function App() {
-    const [cars, setCars] = useState(data)
+const App:React.FC = observer(() => {
+
     const [basicModal, setBasicModal] = useState(false);
     const toggleShow = () => setBasicModal(!basicModal);
-    const createNewItem = (item: IAddedCar) => {
-        setCars(prevState => [...prevState, item])
-        console.log(cars)
-        toggleShow()
-    }
-
 
     return (
         <div>
@@ -38,7 +34,7 @@ export default function App() {
                             <MDBBtn className = 'btn-close' color = 'none' onClick = {toggleShow}></MDBBtn>
                         </MDBModalHeader>
                         <MDBModalBody>
-                            <FormCar createCar = {(item: IAddedCar) => createNewItem(item)}/>
+                            <FormCar createCar = {(item: IAddedCar) => Store.createNewItem(item)}/>
                         </MDBModalBody>
 
                         <MDBModalFooter>
@@ -49,12 +45,12 @@ export default function App() {
                     </MDBModalContent>
                 </MDBModalDialog>
             </MDBModal>
-            <Content data = {cars}/>
+            <Content data = {Store.data}/>
             <div className = "d-flex justify-content-center mt-3">
                 <MDBBtn onClick = {toggleShow}>New</MDBBtn>
             </div>
             <Footer/>
         </div>
     )
-}
-
+})
+export default App
