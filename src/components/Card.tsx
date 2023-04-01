@@ -9,7 +9,7 @@ import {
     MDBRipple
 } from 'mdb-react-ui-kit';
 import {IAddedCar} from "../data";
-import Store from '../Store'
+import carsStore from "../Store/CarsStore";
 
 const Card: React.FC<IAddedCar> = ({id, name, year, imageUrl, descrip}) => {
     return (
@@ -28,7 +28,7 @@ const Card: React.FC<IAddedCar> = ({id, name, year, imageUrl, descrip}) => {
                 <div className = "d-flex justify-content-between">
                     <MDBBtn rounded>More</MDBBtn>
                     <MDBBtn outline rounded color = 'danger' onClick = {() => {
-                        Store.deleteItem(id)
+                        carsStore.deleteItem(id)
                     }}>Delete</MDBBtn>
                 </div>
             </MDBCardBody>

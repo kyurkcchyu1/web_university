@@ -39,22 +39,17 @@ const Footer: React.FC = () => {
                             <h6 className = 'text-uppercase fw-bold mb-4'>Useful links</h6>
                             <p>
                                 <a href = '#!' className = 'text-reset'>
-                                    Pricing
+                                    Home
                                 </a>
                             </p>
                             <p>
                                 <a href = '#!' className = 'text-reset'>
-                                    Settings
+                                    Cars
                                 </a>
                             </p>
                             <p>
                                 <a href = '#!' className = 'text-reset'>
-                                    Orders
-                                </a>
-                            </p>
-                            <p>
-                                <a href = '#!' className = 'text-reset'>
-                                    Help
+                                    About
                                 </a>
                             </p>
                         </MDBCol>

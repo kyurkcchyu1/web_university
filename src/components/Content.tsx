@@ -13,4 +13,4 @@ const Content: React.FC<ContentProps> = ({data}) => {
         </div>
     );
 }
-export default Content
+export default Content;
