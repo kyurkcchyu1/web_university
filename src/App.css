@@ -40,3 +40,32 @@
 .links-color:hover {
     color: rgba(0, 0, 0, 0.8);
 }
+.parallax {
+    background-image: url('https://7themes.su/_ph/23/969642055.jpg?1676070473');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 800px
+}
+
+.check {
+    display: inline-block;
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5em 2em;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+}
+
+.check:hover {
+    background: rgba(255, 255, 255, .2);
+}
+
+.check:active {
+    background: white;
+}

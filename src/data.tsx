@@ -7,8 +7,6 @@ export interface ICar {
 
 export interface IAddedCar extends ICar {
     id: number,
-    model?: string,
-    country?: string
 }
 
 export const data: IAddedCar[] = [

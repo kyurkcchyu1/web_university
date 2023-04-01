@@ -15,7 +15,7 @@ const FormCar: React.FC<FormCarProps> = ({createCar}) => {
     const [img, setImg] = useState('')
     const [descr, setDescr] = useState('')
     const handleSubmit: (event: React.MouseEvent<HTMLButtonElement>) => void = () => {
-        event.preventDefault()
+        event?.preventDefault()
         const newItem: IAddedCar = {
             id: Number(new Date()),
             name: name,
@@ -30,7 +30,9 @@ const FormCar: React.FC<FormCarProps> = ({createCar}) => {
         setDescr('')
     }
 
+
     return (
+        // @ts-ignore
         <form className = 'formcar' onSubmit = {handleSubmit}>
             <MDBInput id = 'form4Example1' wrapperClass = 'mb-4' label = 'Name' required = {true} value = {name}
                       onChange = {(e) => {
